@@ -320,4 +320,88 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  // ===== SCROLL-TRIGGERED ANIMATIONS (IntersectionObserver) =====
+  // This makes sections fade/slide in as you scroll — like hilandinteriors.ca
+  const animatedElements = document.querySelectorAll('.animate-on-scroll');
+  if (animatedElements.length > 0 && 'IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target); // Only animate once
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '0px 0px -50px 0px'
+    });
+
+    animatedElements.forEach(el => observer.observe(el));
+  }
+
+  // ===== SMOOTH ANCHOR SCROLLING WITH HEADER OFFSET =====
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      const targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      const targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        const headerHeight = document.querySelector('.site-header')?.offsetHeight || 80;
+        const targetPosition = targetEl.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        // Close mobile nav if open
+        if (mobileNav && mobileNav.classList.contains('open')) {
+          mobileNav.classList.remove('open');
+          if (mobileToggle) mobileToggle.setAttribute('aria-expanded', 'false');
+        }
+      }
+    });
+  });
+
+  // ===== HEADER SCROLL STATE (adds depth on scroll) =====
+  const siteHeader = document.querySelector('.site-header');
+  if (siteHeader) {
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const scrollY = window.pageYOffset;
+      if (scrollY > 60) {
+        siteHeader.classList.add('scrolled');
+      } else {
+        siteHeader.classList.remove('scrolled');
+      }
+      lastScroll = scrollY;
+    }, { passive: true });
+  }
+
+  // ===== COUNTER ANIMATION FOR STATS =====
+  const counters = document.querySelectorAll('[data-count]');
+  if (counters.length > 0 && 'IntersectionObserver' in window) {
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const el = entry.target;
+          const target = parseInt(el.getAttribute('data-count'), 10);
+          const suffix = el.getAttribute('data-suffix') || '';
+          let current = 0;
+          const step = Math.max(1, Math.floor(target / 40));
+          const timer = setInterval(() => {
+            current += step;
+            if (current >= target) {
+              current = target;
+              clearInterval(timer);
+            }
+            el.textContent = current + suffix;
+          }, 30);
+          counterObserver.unobserve(el);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(el => counterObserver.observe(el));
+  }
 });

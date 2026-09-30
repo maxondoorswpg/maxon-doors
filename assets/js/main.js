@@ -1,14 +1,140 @@
 /**
  * MAXON DOORS — Client-side Interactivity & Formspree Integration
- * High-performance vanilla JavaScript (Zero dependencies)
- *
- * FORMSPREE CONFIGURATION:
- * 1. Go to https://formspree.io and sign up with maxondoorswpg@gmail.com
- * 2. Create a new form (e.g. "Maxon Doors Quotes") and copy the Form ID (e.g. "xpzgqxyz")
+ * Master Design System & Dark Luxury Interactive Architecture
+ * Verified Formspree Endpoint: mwlpzwll
+ */
+
 window.MAXON_FORMSPREE_ID = "mwlpzwll";
 
+// Visualizer Data Store
+const DOOR_FINISHES = {
+  oak: {
+    title: "Natural Oak Woodgrain Flush Door",
+    specs: "2\" Heavy-Duty Panel • Continuous R-17.4 Core • Matching Warm Oak Grain Both Sides • In-Stock in Winnipeg",
+    img: "assets/images/oak-flush-garage-door.jpg",
+    styleVal: "Flush Garage Door — Natural Oak"
+  },
+  walnut: {
+    title: "Dark Walnut Woodgrain Flush Door",
+    specs: "2\" Heavy-Duty Panel • Continuous R-17.4 Core • Rich Mocha Walnut Grain Both Sides • In-Stock in Winnipeg",
+    img: "assets/images/dark-walnut-garage-door.jpg",
+    styleVal: "Flush Garage Door — Dark Walnut"
+  },
+  black: {
+    title: "Modern Midnight Black Flush Door",
+    specs: "2\" Heavy-Duty Panel • Continuous R-17.4 Core • Satin Architectural Black Both Sides • In-Stock in Winnipeg",
+    img: "assets/images/hero-flush-garage-door.jpg",
+    styleVal: "Flush Garage Door — Midnight Black"
+  },
+  white: {
+    title: "Polar White Flush Minimalist Door",
+    specs: "2\" Heavy-Duty Panel • Continuous R-17.4 Core • Pure Baked Enamel Finish Inside & Out • In-Stock in Winnipeg",
+    img: "assets/images/installed-white-flush-door.jpg",
+    styleVal: "Flush Garage Door — Polar White"
+  },
+  glass: {
+    title: "All-Glass / Full-View Architectural Door",
+    specs: "Heavy Black Anodized Aluminum • Dual-Pane Insulated Tempered Glass • Modern Showpiece Curb Appeal",
+    img: "assets/images/installed-glass-garage-door.jpg",
+    styleVal: "All-Glass / Full-View Door"
+  }
+};
+
+/**
+ * 1. Interactive Door Visualizer Swatch Switcher
+ */
+window.selectDoorSwatch = function(colorKey) {
+  const data = DOOR_FINISHES[colorKey];
+  if (!data) return;
+
+  const displayImg = document.getElementById('visualizerImg');
+  const displayTitle = document.getElementById('visualizerTitle');
+  const displaySpecs = document.getElementById('visualizerSpecs');
+  const quoteStyleInput = document.getElementById('doorStyle');
+
+  if (displayImg) {
+    displayImg.style.opacity = '0';
+    setTimeout(() => {
+      displayImg.src = data.img;
+      displayImg.alt = data.title;
+      displayImg.style.opacity = '1';
+    }, 180);
+  }
+
+  if (displayTitle) displayTitle.textContent = data.title;
+  if (displaySpecs) displaySpecs.textContent = data.specs;
+
+  // Active state on buttons
+  document.querySelectorAll('.swatch-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.getAttribute('data-color') === colorKey);
+  });
+
+  // Pre-select in quote form dropdown
+  if (quoteStyleInput && data.styleVal) {
+    quoteStyleInput.value = data.styleVal;
+  }
+};
+
+/**
+ * 2. Interactive Installed Projects Filter Tabs
+ */
+window.filterGallery = function(category) {
+  // Update active tab style
+  document.querySelectorAll('.filter-tab').forEach(tab => {
+    tab.classList.toggle('active', tab.getAttribute('data-category') === category);
+  });
+
+  // Filter gallery cards
+  const cards = document.querySelectorAll('.gallery-card');
+  cards.forEach(card => {
+    const cardCat = card.getAttribute('data-category') || '';
+    if (category === 'all' || cardCat.includes(category)) {
+      card.style.display = 'flex';
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 50);
+    } else {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(10px)';
+      card.style.display = 'none';
+    }
+  });
+};
+
+/**
+ * 3. Quick Quote Pre-fill and Smooth Scroll
+ */
+window.selectDoorOption = function(style, size) {
+  const styleSelect = document.getElementById('doorStyle');
+  const sizeSelect = document.getElementById('doorSize');
+  const quoteSection = document.getElementById('quote');
+
+  if (styleSelect && style) {
+    styleSelect.value = style;
+  }
+  if (sizeSelect && size) {
+    sizeSelect.value = size;
+  }
+  if (quoteSection) {
+    quoteSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
+/**
+ * 4. Financing Pre-fill Helper
+ */
+window.checkFinancingOption = function() {
+  const chk = document.getElementById('financingCheckbox');
+  if (chk) chk.checked = true;
+  const quoteSection = document.getElementById('quote');
+  if (quoteSection) {
+    quoteSection.scrollIntoView({ behavior: 'smooth' });
+  }
+};
+
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. Mobile Navigation Toggle
+  // Mobile Navigation Drawer Toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const mobileNav = document.getElementById('mobileNav');
 
@@ -30,7 +156,6 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
     });
 
-    // Close when clicking links
     mobileNav.querySelectorAll('a').forEach(link => {
       link.addEventListener('click', () => {
         mobileNav.classList.remove('open');
@@ -39,19 +164,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 2. FAQ Accordion & Instant Search
+  // FAQ Accordion & Instant Search Filter
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const questionBtn = item.querySelector('.faq-question');
     if (questionBtn) {
       questionBtn.addEventListener('click', () => {
         const isActive = item.classList.contains('active');
-        
-        // Close siblings if desired or allow multi-expand
         faqItems.forEach(sib => {
           if (sib !== item) sib.classList.remove('active');
         });
-
         item.classList.toggle('active', !isActive);
       });
     }
@@ -67,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (term === '' || questionText.includes(term) || answerText.includes(term)) {
           item.style.display = 'block';
           if (term.length > 2 && (questionText.includes(term) || answerText.includes(term))) {
-            item.classList.add('active'); // auto-open matching search
+            item.classList.add('active');
           }
         } else {
           item.style.display = 'none';
@@ -76,7 +198,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // 3. Formspree Quote Request Form Handler
+  // Formspree Quote Request Form Submission Handler
   const quoteForm = document.getElementById('quoteForm');
   const formAlert = document.getElementById('formAlert');
   const submitBtn = document.getElementById('quoteSubmitBtn');
@@ -88,32 +210,27 @@ document.addEventListener('DOMContentLoaded', () => {
       if (!formAlert) return;
 
       const formData = new FormData(quoteForm);
-      // Support global Formspree ID override or fallback to form action attribute
-      let actionUrl = quoteForm.getAttribute('action');
-      if (window.MAXON_FORMSPREE_ID) {
-        actionUrl = `https://formspree.io/f/${window.MAXON_FORMSPREE_ID}`;
-      }
+      let actionUrl = `https://formspree.io/f/${window.MAXON_FORMSPREE_ID}`;
 
-      // Check for consent checkbox
+      // Check permission checkbox
       const consent = quoteForm.querySelector('input[name="consent"]');
       if (consent && !consent.checked) {
         showAlert('Please accept the permission checkbox to receive your quote.', 'error');
         return;
       }
 
-      // Handle attachment for Formspree free compatibility
+      // Handle attachment for Formspree free tier compatibility
       const fileInput = quoteForm.querySelector('input[type="file"]');
       if (fileInput && (!fileInput.files || fileInput.files.length === 0 || fileInput.files[0].size === 0)) {
         formData.delete('attachment');
       } else if (fileInput && fileInput.files && fileInput.files.length > 0) {
-        // Formspree free tier doesn't support file uploads; preserve the quote and add note
         const origMsg = formData.get('message') || '';
-        formData.set('message', origMsg + (origMsg ? '\n\n' : '') + '[Customer has photo/blueprint to share - requested follow-up]');
+        formData.set('message', origMsg + (origMsg ? '\n\n' : '') + '[Customer has photo/blueprint to share — requested follow-up]');
         formData.delete('attachment');
       }
 
-      // Button loading state
-      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
+      // Button loading indicator
+      const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit Quote Request to Maxon Doors';
       if (submitBtn) {
         submitBtn.disabled = true;
         submitBtn.innerHTML = `
@@ -126,7 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       try {
-        // Submit to Formspree endpoint via AJAX
         const response = await fetch(actionUrl, {
           method: 'POST',
           body: formData,
@@ -137,29 +253,42 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (response.ok) {
           showAlert(`
-            <strong>Thank you! Your quote request has been received by Maxon Doors in Winnipeg.</strong><br>
-            A garage door specialist will review your specifications and contact you at ${formData.get('phone') || 'your number'} shortly. We have also received your request at <strong>maxondoorswpg@gmail.com</strong>. For immediate assistance, call us at <a href="tel:4313744129" style="text-decoration:underline; font-weight:bold;">(431) 374-4129</a>.
+            <div style="font-size:1.1rem; font-weight:800; margin-bottom:0.4rem; color:#34d399;">
+              Quote Request Confirmed!
+            </div>
+            <div>
+              Thank you, <strong>${formData.get('name') || 'Customer'}</strong>! Your quote request has been transmitted directly to Maxon Doors Winnipeg at <strong>maxondoorswpg@gmail.com</strong>.<br>
+              A garage door specialist will contact you at <strong>${formData.get('phone') || 'your phone number'}</strong> with direct warehouse pricing.<br>
+              For immediate questions, call our 50 Mandalay Drive showroom at <a href="tel:4313744129" style="text-decoration:underline; font-weight:bold; color:var(--accent-gold);">(431) 374-4129</a>.
+            </div>
           `, 'success');
           quoteForm.reset();
         } else {
-          // If Formspree endpoint is awaiting first confirmation or setup
           const mailtoSubject = encodeURIComponent("Maxon Doors Quote Request - " + (formData.get('name') || 'Customer'));
           const mailtoBody = encodeURIComponent(
-            `Name: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nEmail: ${formData.get('email')}\nStyle: ${formData.get('door_style')}\nSize: ${formData.get('door_size')}\nAddress: ${formData.get('address') || 'N/A'}\nMessage: ${formData.get('message') || 'N/A'}`
+            `Name: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nEmail: ${formData.get('email')}\nStyle: ${formData.get('door_style')}\nSize: ${formData.get('door_size')}\nAddress: ${formData.get('address') || 'N/A'}\nFinancing: ${formData.get('financing_interested') || 'No'}\nMessage: ${formData.get('message') || 'N/A'}`
           );
           showAlert(`
-            <strong>Quote Details Ready to Send!</strong><br>
-            Form notification sent. To ensure immediate delivery to our inbox, you can also <a href="mailto:maxondoorswpg@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}" style="text-decoration:underline; font-weight:bold; color:var(--accent-gold);">Click Here to Send to maxondoorswpg@gmail.com</a>, or call us directly at <a href="tel:4313744129" style="font-weight:bold;">(431) 374-4129</a>.
+            <div style="font-size:1.1rem; font-weight:800; margin-bottom:0.4rem; color:var(--accent-gold);">
+              Quote Details Ready to Send!
+            </div>
+            <div>
+              We received your form input. To ensure instant delivery to our dispatch desk, <a href="mailto:maxondoorswpg@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}" style="text-decoration:underline; font-weight:bold; color:#ffffff;">Click Here to Email Directly to maxondoorswpg@gmail.com</a>, or call our Winnipeg showroom at <a href="tel:4313744129" style="font-weight:bold; color:var(--accent-gold);">(431) 374-4129</a>.
+            </div>
           `, 'success');
         }
       } catch (err) {
         const mailtoSubject = encodeURIComponent("Maxon Doors Quote Request - " + (formData.get('name') || 'Customer'));
         const mailtoBody = encodeURIComponent(
-          `Name: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nEmail: ${formData.get('email')}\nStyle: ${formData.get('door_style')}\nSize: ${formData.get('door_size')}\nAddress: ${formData.get('address') || 'N/A'}\nMessage: ${formData.get('message') || 'N/A'}`
+          `Name: ${formData.get('name')}\nPhone: ${formData.get('phone')}\nEmail: ${formData.get('email')}\nStyle: ${formData.get('door_style')}\nSize: ${formData.get('door_size')}\nAddress: ${formData.get('address') || 'N/A'}\nFinancing: ${formData.get('financing_interested') || 'No'}\nMessage: ${formData.get('message') || 'N/A'}`
         );
         showAlert(`
-          <strong>Thank you! Your request details are ready.</strong><br>
-          <a href="mailto:maxondoorswpg@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}" style="text-decoration:underline; font-weight:bold; color:var(--accent-gold);">Click Here to Send Directly to maxondoorswpg@gmail.com</a>, or call our Winnipeg office at <a href="tel:4313744129" style="font-weight:bold;">(431) 374-4129</a>.
+          <div style="font-size:1.1rem; font-weight:800; margin-bottom:0.4rem; color:var(--accent-gold);">
+            Quote Details Prepared
+          </div>
+          <div>
+            Please <a href="mailto:maxondoorswpg@gmail.com?subject=${mailtoSubject}&body=${mailtoBody}" style="text-decoration:underline; font-weight:bold; color:#ffffff;">Click Here to Send Directly to maxondoorswpg@gmail.com</a>, or call us at <a href="tel:4313744129" style="font-weight:bold; color:var(--accent-gold);">(431) 374-4129</a>.
+          </div>
         `, 'success');
       } finally {
         if (submitBtn) {
@@ -178,26 +307,9 @@ document.addEventListener('DOMContentLoaded', () => {
     formAlert.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
   }
 
-  // 4. Quick Door Selector / Spec Pre-fill
-  window.selectDoorOption = function(style, size) {
-    const styleSelect = document.getElementById('doorStyle');
-    const sizeSelect = document.getElementById('doorSize');
-    const quoteSection = document.getElementById('quote');
-
-    if (styleSelect && style) {
-      styleSelect.value = style;
-    }
-    if (sizeSelect && size) {
-      sizeSelect.value = size;
-    }
-    if (quoteSection) {
-      quoteSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
-  // 5. Phone Click Event Tracking Helper (GA4 / GTM readiness)
+  // Phone Click Event Tracking Helper
   document.querySelectorAll('a[href^="tel:"]').forEach(telLink => {
-    telLink.addEventListener('click', (e) => {
+    telLink.addEventListener('click', () => {
       const phoneNumber = telLink.getAttribute('href').replace('tel:', '');
       if (window.dataLayer) {
         window.dataLayer.push({

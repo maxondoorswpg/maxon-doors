@@ -1889,3 +1889,68 @@ button, input, select, textarea {
     display: block;
   }
 }
+
+/* ==========================================================================
+   SUBPAGE ARCHITECTURE & BREADCRUMBS
+   ========================================================================== */
+.breadcrumbs {
+  padding: 0.85rem 0;
+  background-color: var(--bg-darker);
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 0.84rem;
+}
+
+.breadcrumbs ol {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  list-style: none !important;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.breadcrumbs li {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--text-muted);
+  list-style: none !important;
+}
+
+.breadcrumbs a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.breadcrumbs a:hover {
+  color: var(--accent-gold);
+}
+
+.breadcrumbs [aria-current="page"] {
+  color: var(--text-white);
+  font-weight: 700;
+}
+
+.page-hero {
+  padding: 4.5rem 0 3.5rem;
+  background: radial-gradient(circle at 80% 20%, rgba(245, 158, 11, 0.12) 0%, transparent 45%),
+              var(--bg-dark-base) !important;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.page-hero-title {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.page-hero-lead {
+  font-size: 1.15rem;
+  line-height: 1.65;
+  color: #cbd5e1;
+  max-width: 800px;
+}

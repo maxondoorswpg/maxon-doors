@@ -5,9 +5,7 @@
  * FORMSPREE CONFIGURATION:
  * 1. Go to https://formspree.io and sign up with maxondoorswpg@gmail.com
  * 2. Create a new form (e.g. "Maxon Doors Quotes") and copy the Form ID (e.g. "xpzgqxyz")
- * 3. Paste the ID below inside the quotes (or leave empty to use default endpoint):
- */
-window.MAXON_FORMSPREE_ID = window.MAXON_FORMSPREE_ID || "";
+window.MAXON_FORMSPREE_ID = "mwlpzwll";
 
 document.addEventListener('DOMContentLoaded', () => {
   // 1. Mobile Navigation Toggle

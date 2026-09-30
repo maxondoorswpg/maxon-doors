@@ -21,8 +21,22 @@
   <meta name="twitter:description" content="Winnipeg's #1 garage door warehouse at 50 Mandalay Dr. Premium R-17.4 flush &amp; all-glass garage doors. 0% financing available.">
   <meta name="twitter:image" content="https://maxondoors.ca/assets/images/oak-flush-garage-door.jpg">
 
-  <!-- Stylesheet -->
-  <link rel="stylesheet" href="assets/css/main.css">
+  <!-- Critical Theme Enforcer (Prevents Flash of Light Background) -->
+  <style>
+    html, body {
+      background-color: #08090d !important;
+      color: #f1f5f9 !important;
+    }
+    .section, .section-alt, .trust-banner-section, .hero, .quote-section, .site-footer {
+      background-color: #08090d !important;
+    }
+    .section-alt, .trust-banner-section, .visualizer-card, .bento-card, .product-card, .gallery-card, .feature-card, .quote-form-card, .direct-contact-card {
+      background-color: #0f121a !important;
+    }
+  </style>
+
+  <!-- External Stylesheet with Cache Buster -->
+  <link rel="stylesheet" href="assets/css/main.css?v=20260930_1620">
   <link rel="icon" type="image/png" href="assets/images/maxon-logo.png">
 
   <!-- Structured Data: LocalBusiness, Warehouse & Financing -->
@@ -132,7 +146,7 @@
     <p><strong>Financing Services:</strong> Maxon Doors provides comprehensive garage door financing in Winnipeg starting as low as $49/month with 0% interest promotion plans and instant pre-approvals.</p>
   </div>
 
-  <!-- Top Announcement Bar (Financing & Inventory Highlight) -->
+  <!-- Top Announcement Bar (Financing & Warehouse) -->
   <aside class="top-bar" aria-label="Financing and Warehouse Information">
     <div class="container top-bar-content">
       <div class="top-bar-badge">
@@ -172,12 +186,11 @@
       <!-- Desktop Interactive Pill Nav -->
       <nav aria-label="Main Navigation">
         <ul class="nav-menu">
-          <li><a href="#visualizer" class="nav-link">Door Visualizer</a></li>
+          <li><a href="#visualizer" class="nav-link">Live Visualizer</a></li>
           <li><a href="#styles" class="nav-link">Door Styles</a></li>
           <li><a href="#gallery" class="nav-link">Installed Projects</a></li>
-          <li><a href="#financing" class="nav-link">Financing ($49/mo)</a></li>
-          <li><a href="/flush-garage-doors/" class="nav-link">Flush Doors</a></li>
-          <li><a href="/glass-garage-doors/" class="nav-link">All-Glass Doors</a></li>
+          <li><a href="#comparison" class="nav-link">Comparison</a></li>
+          <li><a href="#financing" class="nav-link finance-link">Financing ($49/mo)</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
           <li><a href="/contact/" class="nav-link">Location</a></li>
         </ul>
@@ -188,7 +201,7 @@
           <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           Call Us
         </a>
-        <a href="#quote" class="btn btn-primary">Get a Free Quote</a>
+        <a href="#quote" class="btn btn-primary">Get Free Quote</a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle navigation menu" aria-expanded="false">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
         </button>
@@ -202,6 +215,7 @@
       <li><a href="#visualizer" class="mobile-nav-link">Interactive Door Visualizer</a></li>
       <li><a href="#styles" class="mobile-nav-link">Door Styles (Oak, Walnut, Black, White)</a></li>
       <li><a href="#gallery" class="mobile-nav-link">Installed Projects Gallery</a></li>
+      <li><a href="#comparison" class="mobile-nav-link">Maxon vs Competitors</a></li>
       <li><a href="#financing" class="mobile-nav-link">0% Financing (From $49/mo)</a></li>
       <li><a href="/flush-garage-doors/" class="mobile-nav-link">Flush Garage Doors</a></li>
       <li><a href="/glass-garage-doors/" class="mobile-nav-link">All-Glass / Full-View Doors</a></li>
@@ -291,54 +305,54 @@
       </div>
     </section>
 
-    <!-- TRUST STRIP (4 PILLARS) -->
+    <!-- TRUST STRIP (4 LUXURY CARDS IN GRID) -->
     <section class="trust-banner-section">
       <div class="container">
         <div class="trust-banner-grid">
           <div class="trust-item animate-on-scroll">
             <div class="trust-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
             </div>
             <div class="trust-text">
               <h4>0% Financing Available</h4>
-              <p>As low as $49/mo &bull; Instant pre-approval</p>
+              <p>As low as $49/mo &bull; Instant approval</p>
             </div>
           </div>
 
-          <div class="trust-item animate-on-scroll">
+          <div class="trust-item animate-on-scroll delay-100">
             <div class="trust-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </div>
             <div class="trust-text">
-              <h4>North America's Biggest Inventory</h4>
+              <h4>North America's Biggest Stock</h4>
               <p>50 Mandalay Dr &bull; Ready for pickup</p>
             </div>
           </div>
 
-          <div class="trust-item animate-on-scroll">
+          <div class="trust-item animate-on-scroll delay-200">
             <div class="trust-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
             </div>
             <div class="trust-text">
-              <h4>2" Thickness &amp; R-17.4 Core</h4>
-              <p>Engineered for -40&deg;C Manitoba winters</p>
+              <h4>2" Thick &bull; R-17.4 Core</h4>
+              <p>Engineered for -40&deg;C Manitoba cold</p>
             </div>
           </div>
 
-          <div class="trust-item animate-on-scroll">
+          <div class="trust-item animate-on-scroll delay-300">
             <div class="trust-icon">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </div>
             <div class="trust-text">
-              <h4>Matching Color Both Sides</h4>
-              <p>Refined interior &amp; exterior finish</p>
+              <h4>Matching Finish Both Sides</h4>
+              <p>Refined interior &amp; exterior look</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- INTERACTIVE DOOR VISUALIZER / COLOR SWITCHER (Hiland Interiors style) -->
+    <!-- INTERACTIVE DOOR VISUALIZER / COLOR CONFIGURATOR (Hiland Interiors style) -->
     <section class="section" id="visualizer">
       <div class="container">
         <div class="section-header animate-on-scroll">
@@ -351,9 +365,9 @@
 
         <div class="visualizer-card bento-card animate-on-scroll delay-200">
           <div class="visualizer-controls">
-            <span class="badge-tag badge-gold">Select Finish to Preview</span>
-            <h3 style="font-size: 1.6rem; font-weight: 800; color: #ffffff;">Choose Your Architectural Finish:</h3>
-            <p style="color: var(--text-muted); font-size: 0.95rem;">
+            <span class="badge-tag badge-gold">Interactive Color Switcher</span>
+            <h3 style="font-size: 1.5rem; font-weight: 800; color: #ffffff;">Choose Architectural Finish:</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.55;">
               Every Maxon flush door features identical finish on both interior and exterior sides, continuous R-17.4 polyurethane insulation, and commercial double torsion springs.
             </p>
 
@@ -384,14 +398,14 @@
               </button>
             </div>
 
-            <div style="margin-top: 1rem; display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="#quote" class="btn btn-primary" style="flex: 1; text-align: center;">Get Quote for This Style</a>
-              <a href="tel:4313744129" class="btn btn-secondary">Inquire by Phone</a>
+            <div style="margin-top: 1.25rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+              <a href="#quote" class="btn btn-primary" onclick="selectDoorOption('Flush Garage Door — Natural Oak', '16x8')" style="flex: 1.3; text-align: center;">Get Direct Quote on This Finish &rarr;</a>
+              <a href="tel:4313744129" class="btn btn-secondary">Call Showroom</a>
             </div>
           </div>
 
           <div class="visualizer-display">
-            <img id="visualizerImg" src="assets/images/oak-flush-garage-door.jpg" alt="Natural Oak Woodgrain Flush Garage Door" width="700" height="420">
+            <img id="visualizerImg" src="assets/images/oak-flush-garage-door.jpg" alt="Natural Oak Woodgrain Flush Garage Door" width="700" height="440">
             <div class="visualizer-display-overlay">
               <div class="visualizer-details">
                 <h3 id="visualizerTitle">Natural Oak Woodgrain Flush Door</h3>
@@ -457,7 +471,7 @@
           </article>
 
           <!-- 2. Dark Walnut Flush Door -->
-          <article class="product-card animate-on-scroll">
+          <article class="product-card animate-on-scroll delay-100">
             <div class="product-card-img-wrap">
               <span class="product-card-badge">In-Stock Woodgrain</span>
               <img src="assets/images/dark-walnut-garage-door.jpg" alt="Dark Walnut Woodgrain Flush Garage Door Winnipeg" width="400" height="240" loading="lazy">
@@ -498,7 +512,7 @@
           </article>
 
           <!-- 3. Midnight Black Flush Door -->
-          <article class="product-card animate-on-scroll">
+          <article class="product-card animate-on-scroll delay-200">
             <div class="product-card-img-wrap">
               <span class="product-card-badge">Best Seller</span>
               <img src="assets/images/hero-flush-garage-door.jpg" alt="Midnight Black Flush Garage Door Winnipeg" width="400" height="240" loading="lazy">
@@ -580,7 +594,7 @@
           </article>
 
           <!-- 5. All-Glass Full-View Doors -->
-          <article class="product-card animate-on-scroll">
+          <article class="product-card animate-on-scroll delay-100">
             <div class="product-card-img-wrap">
               <span class="product-card-badge">Architectural Glass</span>
               <img src="assets/images/installed-glass-garage-door.jpg" alt="All-Glass Full-View Garage Door Winnipeg" width="400" height="240" loading="lazy">
@@ -662,7 +676,7 @@
           </div>
 
           <!-- Install 2: Natural Oak Flush -->
-          <div class="gallery-card animate-on-scroll" data-category="woodgrain flush">
+          <div class="gallery-card animate-on-scroll delay-100" data-category="woodgrain flush">
             <div class="gallery-img-wrap">
               <span class="gallery-location-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -680,7 +694,7 @@
           </div>
 
           <!-- Install 3: Dark Walnut Flush -->
-          <div class="gallery-card animate-on-scroll" data-category="woodgrain flush">
+          <div class="gallery-card animate-on-scroll delay-200" data-category="woodgrain flush">
             <div class="gallery-img-wrap">
               <span class="gallery-location-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -716,7 +730,7 @@
           </div>
 
           <!-- Install 5: All-Glass Full-View -->
-          <div class="gallery-card animate-on-scroll" data-category="glass">
+          <div class="gallery-card animate-on-scroll delay-100" data-category="glass">
             <div class="gallery-img-wrap">
               <span class="gallery-location-badge">
                 <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
@@ -736,7 +750,7 @@
       </div>
     </section>
 
-    <!-- DEDICATED FINANCING CALLOUT SECTION (IMPORTANT NEW REQUIREMENT) -->
+    <!-- DEDICATED FINANCING CALLOUT SECTION -->
     <section class="section section-alt" id="financing">
       <div class="container">
         <div class="financing-banner-box animate-on-scroll">
@@ -807,7 +821,7 @@
             <p>Buy directly from Winnipeg's premier garage door supplier. We eliminate distributor broker markups and shipping delays, providing direct warehouse pricing.</p>
           </div>
 
-          <div class="feature-card bento-card animate-on-scroll">
+          <div class="feature-card bento-card animate-on-scroll delay-100">
             <div class="feature-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"></path><path d="M12 6v6l4 2"></path></svg>
             </div>
@@ -815,7 +829,7 @@
             <p>Commercial 2-inch (50.8 mm) continuous polyurethane insulation blocks sub-zero prairie drafts and keeps adjacent living spaces warm during -40&deg;C Manitoba cold snaps.</p>
           </div>
 
-          <div class="feature-card bento-card animate-on-scroll">
+          <div class="feature-card bento-card animate-on-scroll delay-200">
             <div class="feature-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
             </div>
@@ -823,13 +837,83 @@
             <p>Every door includes heavy-duty dual torsion springs on a solid steel shaft for smooth, balanced operation, enhanced safety, and extended cycle life in freezing temperatures.</p>
           </div>
 
-          <div class="feature-card bento-card animate-on-scroll">
+          <div class="feature-card bento-card animate-on-scroll delay-300">
             <div class="feature-icon-wrapper">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
             </div>
             <h3>Stocked in Winnipeg (50 Mandalay Dr)</h3>
             <p>We maintain North America's largest garage door inventory right here in Winnipeg. Standard sizes (9x7, 9x8, 16x7, 16x8, 18x8) are in stock for fast pickup or delivery.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURAL COMPARISON (Hiland Interiors style) -->
+    <section class="comparison-section" id="comparison">
+      <div class="container">
+        <div class="section-header animate-on-scroll">
+          <span class="section-kicker">The Superior Choice</span>
+          <h2 class="section-title">Engineered for Manitoba. <span>Compared to Competitors.</span></h2>
+          <p class="section-desc">
+            Compare Maxon Doors specifications against big-box retail stores and budget installers. See why builders and homeowners across Winnipeg choose Maxon.
+          </p>
+        </div>
+
+        <div class="comparison-table-wrapper animate-on-scroll delay-100">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Specification Point</th>
+                <th class="highlight">Maxon Doors (Winnipeg)</th>
+                <th>Big-Box Retailers</th>
+                <th>Budget Door Installers</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Panel Thickness</strong></td>
+                <td class="highlight"><span class="comparison-check">&#10003;</span> 2.0 Inches (50.8 mm) Heavy-Duty</td>
+                <td><span class="comparison-cross">&#10005;</span> 1.375" Light-Gauge Steel</td>
+                <td><span class="comparison-cross">&#10005;</span> Single-Layer Non-Insulated</td>
+              </tr>
+              <tr>
+                <td><strong>Insulation Rating</strong></td>
+                <td class="highlight"><span class="comparison-check">&#10003;</span> Continuous R-17.4 Polyurethane Core</td>
+                <td><span class="comparison-cross">&#10005;</span> R-6.5 to R-9 Polystyrene Inserts</td>
+                <td><span class="comparison-cross">&#10005;</span> Zero Insulation (Drafty)</td>
+              </tr>
+              <tr>
+                <td><strong>Interior Side Finish</strong></td>
+                <td class="highlight"><span class="comparison-check">&#10003;</span> Identical Premium Color Both Sides</td>
+                <td><span class="comparison-cross">&#10005;</span> Cheap White Backer Steel</td>
+                <td><span class="comparison-cross">&#10005;</span> Exposed Raw Skeleton</td>
+              </tr>
+              <tr>
+                <td><strong>Local Inventory</strong></td>
+                <td class="highlight"><span class="comparison-check">&#10003;</span> North America's Largest Stock (50 Mandalay)</td>
+                <td><span class="comparison-cross">&#10005;</span> 6 to 10-Week Shipping Delay</td>
+                <td><span class="comparison-cross">&#10005;</span> Order-Only (No Warehouse)</td>
+              </tr>
+              <tr>
+                <td><strong>Spring Hardware</strong></td>
+                <td class="highlight"><span class="comparison-check">&#10003;</span> Commercial Double Torsion Springs</td>
+                <td><span class="comparison-cross">&#10005;</span> Single Extension Spring Setup</td>
+                <td><span class="comparison-cross">&#10005;</span> Low Cycle Hardware</td>
+              </tr>
+              <tr>
+                <td><strong>Homeowner Financing</strong></td>
+                <td class="highlight"><span class="comparison-check">&#10003;</span> 0% Financing from $49/Month</td>
+                <td><span class="comparison-cross">&#10005;</span> 24%+ High-Interest Retail Card</td>
+                <td><span class="comparison-cross">&#10005;</span> No Financing Available</td>
+              </tr>
+              <tr>
+                <td><strong>-40&deg;C Winter Sealing</strong></td>
+                <td class="highlight"><span class="comparison-check">&#10003;</span> Sub-Zero EPDM Pliable Perimeter Seal</td>
+                <td><span class="comparison-cross">&#10005;</span> Rigid Vinyl (Cracks in Frost)</td>
+                <td><span class="comparison-cross">&#10005;</span> Basic Thin Bottom Strip</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -1126,6 +1210,7 @@
           <h4>Company &amp; Financing</h4>
           <ul class="footer-links">
             <li><a href="#financing">0% Financing ($49/Month)</a></li>
+            <li><a href="#comparison">Maxon vs Competitors</a></li>
             <li><a href="/about/">About Maxon Doors</a></li>
             <li><a href="#gallery">Recent Installed Projects</a></li>
             <li><a href="#faq">Frequently Asked Questions</a></li>
@@ -1155,7 +1240,7 @@
     </div>
   </aside>
 
-  <!-- Script -->
-  <script src="assets/js/main.js" defer></script>
+  <!-- Script with Cache Buster -->
+  <script src="assets/js/main.js?v=20260930_1620" defer></script>
 </body>
 </html>

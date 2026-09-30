@@ -101,6 +101,17 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      // Handle attachment for Formspree free compatibility
+      const fileInput = quoteForm.querySelector('input[type="file"]');
+      if (fileInput && (!fileInput.files || fileInput.files.length === 0 || fileInput.files[0].size === 0)) {
+        formData.delete('attachment');
+      } else if (fileInput && fileInput.files && fileInput.files.length > 0) {
+        // Formspree free tier doesn't support file uploads; preserve the quote and add note
+        const origMsg = formData.get('message') || '';
+        formData.set('message', origMsg + (origMsg ? '\n\n' : '') + '[Customer has photo/blueprint to share - requested follow-up]');
+        formData.delete('attachment');
+      }
+
       // Button loading state
       const originalBtnText = submitBtn ? submitBtn.innerHTML : 'Submit';
       if (submitBtn) {
